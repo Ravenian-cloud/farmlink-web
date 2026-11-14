@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline | FarmLink</title>
+    <style>
+        body { font-family: system-ui, sans-serif; background: #fafaf9; color: #1c1917; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 1.5rem; }
+        .card { background: #fff; border: 1px solid #e7e5e4; border-radius: 1rem; padding: 2rem; max-width: 400px; text-align: center; }
+        .badge { background: #fef3c7; color: #92400e; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 999px; display: inline-block; margin-bottom: 1rem; }
+        button { background: #15803d; color: #fff; border: none; padding: 0.75rem 1.25rem; border-radius: 0.75rem; font-weight: 600; cursor: pointer; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <span class="badge">OFFLINE MODE</span>
+        <h2>No Internet Connection</h2>
+        <p style="font-size: 0.875rem; color: #57534e; line-height: 1.5;">
+            This page has not been cached yet. Any produce listings or forum posts you drafted offline are safely stored on your device and will sync automatically when signal returns.
+        </p>
+        <button onclick="window.location.reload()">Retry Connection</button>
+    </div>
+</body>
+</html>
