@@ -1,7 +1,11 @@
 <div class="mb-6">
     <!-- Hero Banner & Quick Tabs -->
-    <div class="bg-gradient-to-r from-green-900 to-green-700 text-white rounded-2xl p-6 sm:p-8 shadow-sm mb-6">
-        <div class="max-w-2xl">
+    <div class="relative overflow-hidden bg-gradient-to-r from-green-900 to-green-700 text-white rounded-2xl p-6 sm:p-8 shadow-sm mb-6">
+        <img src="<?= base_url('assets/img/hero-farm.svg') ?>" alt="Farmer working in a green field"
+             class="absolute inset-y-0 right-0 h-full w-2/5 object-cover opacity-90 hidden sm:block"
+             loading="eager">
+        <div class="absolute inset-0 bg-gradient-to-r from-green-900 via-green-900/95 to-transparent hidden sm:block"></div>
+        <div class="relative max-w-2xl">
             <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">
                 Direct Farm Produce & Certified Agribusiness Inputs
             </h1>
@@ -90,10 +94,21 @@
                             <img src="<?= base_url($item['image_path']) ?>" alt="<?= htmlspecialchars($item['title']) ?>"
                                  class="w-full h-full object-cover">
                         <?php else: ?>
-                            <div class="w-full h-full flex flex-col items-center justify-center text-stone-400 bg-gradient-to-br from-stone-100 to-stone-200">
-                                <span class="text-4xl mb-1"><?= $item['listing_type'] === 'produce' ? '🌾' : '🌱' ?></span>
-                                <span class="text-xs font-medium"><?= htmlspecialchars($item['category_name']) ?></span>
-                            </div>
+                            <?php
+                                $categorySlug = strtolower(trim((string) $item['category_name']));
+                                $fallbackImage = 'assets/img/seed.jpg';
+                                if (str_contains($categorySlug, 'cereal') || str_contains(strtolower((string) $item['title']), 'maize')) {
+                                    $fallbackImage = 'assets/img/maize.jpg';
+                                } elseif (str_contains($categorySlug, 'vegetable') || str_contains(strtolower((string) $item['title']), 'onion')) {
+                                    $fallbackImage = 'assets/img/onions.jpg';
+                                } elseif (str_contains($categorySlug, 'fertiliz')) {
+                                    $fallbackImage = 'assets/img/fertilizer.jpg';
+                                }
+                            ?>
+                            <img src="<?= base_url($fallbackImage) ?>"
+                                 alt="<?= htmlspecialchars($item['title']) ?>"
+                                 class="w-full h-full object-cover"
+                                 loading="lazy">
                         <?php endif; ?>
 
                         <span class="absolute top-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full <?= $item['listing_type'] === 'produce' ? 'bg-emerald-700 text-white' : 'bg-amber-400 text-green-950' ?>">
@@ -150,7 +165,7 @@
 
                     <a href="<?= base_url('marketplace/listing/' . $item['id']) ?>"
                        class="bg-green-700 hover:bg-green-800 text-white text-xs font-semibold px-3.5 py-2 rounded-xl transition">
-                        <?= $item['is_negotiable'] ? 'Bid / Buy' : 'Buy Now' ?>
+                        <?= ($_SESSION['user_role'] ?? '') === 'admin' ? 'View Listing' : ($item['is_negotiable'] ? 'Bid / Buy' : 'Buy Now') ?>
                     </a>
                 </div>
             </article>

@@ -22,6 +22,10 @@ class BidController extends Controller
     {
         $this->verifyCsrf();
 
+        if (($_SESSION['user_role'] ?? '') === 'admin') {
+            $this->respondError('Admin accounts cannot place purchases or submit bids.', '/marketplace');
+        }
+
         $buyerId = (int) $_SESSION['user_id'];
         $listingId = (int) ($_POST['listing_id'] ?? 0);
         $offeredPrice = (float) ($_POST['offered_unit_price'] ?? 0);
@@ -73,6 +77,10 @@ class BidController extends Controller
 
         $isSeller = ((int) $bid['seller_id'] === $userId);
         $isBuyer  = ((int) $bid['buyer_id'] === $userId);
+
+        if ($action === 'accept' && $isBuyer && ($_SESSION['user_role'] ?? '') === 'admin') {
+            $this->respondError('Admin accounts cannot accept purchase offers.', '/dashboard');
+        }
 
         if (!$isSeller && !$isBuyer) {
             http_response_code(403);

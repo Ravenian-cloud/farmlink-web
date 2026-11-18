@@ -19,11 +19,11 @@ INSERT INTO users (full_name, email, phone, password_hash, role, county, sub_cou
 ('System Admin', 'admin@farmlink.co.ke', '254700000000', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 'Nakuru', 'Rongai', -0.17330000, 35.86360000, 'verified', 'en');
 
 -- Sample Listings
-INSERT INTO listings (seller_id, category_id, listing_type, title, description, unit, unit_price, quantity_available, min_order_qty, is_negotiable, county, latitude, longitude, harvest_or_expiry_date) VALUES
-(1, 1, 'produce', 'Grade 1 Dry White Maize', 'Sun-dried, well-sorted white maize harvested this season. Moisture content below 13%.', '90kg bag', 4200.00, 120.00, 5.00, 1, 'Nakuru', -0.17330000, 35.86360000, '2026-10-28'),
-(1, 2, 'produce', 'Red Creole Onions', 'Freshly cured Red Creole onions ready for wholesale transport.', 'kg', 75.00, 1500.00, 50.00, 1, 'Nakuru', -0.17330000, 35.86360000, '2026-11-05'),
-(3, 6, 'input', 'DAP Planting Fertilizer (50kg)', 'High-phosphorus diammonium phosphate fertilizer for strong root establishment.', '50kg bag', 5800.00, 300.00, 1.00, 0, 'Nakuru', -0.28330000, 36.06670000, '2028-06-30'),
-(3, 5, 'input', 'H614D Hybrid Maize Seed (10kg)', 'High-altitude certified hybrid maize seed resistant to grey leaf spot.', '10kg packet', 2650.00, 85.00, 1.00, 0, 'Nakuru', -0.28330000, 36.06670000, '2027-09-15');
+INSERT INTO listings (seller_id, category_id, listing_type, title, description, unit, unit_price, quantity_available, min_order_qty, is_negotiable, county, latitude, longitude, harvest_or_expiry_date, image_path) VALUES
+(1, 1, 'produce', 'Grade 1 Dry White Maize', 'Sun-dried, well-sorted white maize harvested this season. Moisture content below 13%.', '90kg bag', 4200.00, 120.00, 5.00, 1, 'Nakuru', -0.17330000, 35.86360000, '2026-10-28', 'assets/img/maize.svg'),
+(1, 2, 'produce', 'Red Creole Onions', 'Freshly cured Red Creole onions ready for wholesale transport.', 'kg', 75.00, 1500.00, 50.00, 1, 'Nakuru', -0.17330000, 35.86360000, '2026-11-05', 'assets/img/onions.svg'),
+(3, 6, 'input', 'DAP Planting Fertilizer (50kg)', 'High-phosphorus diammonium phosphate fertilizer for strong root establishment.', '50kg bag', 5800.00, 300.00, 1.00, 0, 'Nakuru', -0.28330000, 36.06670000, '2028-06-30', 'assets/img/fertilizer.svg'),
+(3, 5, 'input', 'H614D Hybrid Maize Seed (10kg)', 'High-altitude certified hybrid maize seed resistant to grey leaf spot.', '10kg packet', 2650.00, 85.00, 1.00, 0, 'Nakuru', -0.28330000, 36.06670000, '2027-09-15', 'assets/img/seed.svg');
 
 -- Sample Weather & Pest Alerts
 INSERT INTO alerts (county, alert_type, severity, title, message, expires_at) VALUES

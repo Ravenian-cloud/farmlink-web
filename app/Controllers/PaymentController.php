@@ -13,6 +13,10 @@ class PaymentController extends Controller
 {
     public function initiateStkPush(): void
     {
+        if (($_SESSION['user_role'] ?? '') === 'admin') {
+            $this->json(['status' => 'error', 'message' => 'Admin accounts cannot make purchases.'], 403);
+        }
+
         $this->verifyCsrf();
 
         $orderId = (int) ($_POST['order_id'] ?? 0);

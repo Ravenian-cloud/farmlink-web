@@ -3,19 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta name="theme-color" content="#15803d">
+    <meta name="theme-color" content="#1e6449">
     <meta name="csrf-token" content="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
     <title><?= htmlspecialchars($title ?? 'FarmLink') ?> | FarmLink</title>
-    <link rel="manifest" href="<?= base_url('manifest.json') ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/app.css') ?>">
-    <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        (() => {
+            const root = document.documentElement;
+            let savedTheme = null;
+            try {
+                savedTheme = localStorage.getItem('farmlink-theme');
+            } catch (error) {
+                // Fall back to the system preference when storage is unavailable.
+            }
+
+            const hasSavedTheme = savedTheme === 'night' || savedTheme === 'day';
+            const prefersNight = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = hasSavedTheme ? savedTheme : (prefersNight ? 'night' : 'day');
+
+            root.dataset.theme = theme;
+            root.dataset.themePreference = hasSavedTheme ? 'user' : 'system';
+            document.querySelector('meta[name="theme-color"]').content = theme === 'night' ? '#0d1720' : '#1e6449';
+        })();
         window.FARMLINK = {
             baseUrl: "<?= base_url() ?>",
             csrfToken: "<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>",
             isLoggedIn: <?= !empty($_SESSION['user_id']) ? 'true' : 'false' ?>
         };
     </script>
+    <link rel="manifest" href="<?= base_url('manifest.json') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/app.css') ?>">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-stone-50 text-stone-900 min-h-screen flex flex-col pb-16 md:pb-0">
 
@@ -49,6 +66,12 @@
 
             <!-- Language Switcher & Auth Controls -->
             <div class="flex items-center gap-3 text-sm">
+                <button type="button" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark mode"
+                        class="inline-flex items-center gap-1.5 rounded-lg border border-green-600 bg-green-900 px-2.5 py-1.5 text-xs font-semibold text-white hover:bg-green-700 transition">
+                    <svg data-theme-icon="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"/></svg>
+                    <svg data-theme-icon="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+                    <span class="hidden sm:inline" data-theme-label>Dark</span>
+                </button>
                 <div class="flex items-center bg-green-900 rounded-lg p-0.5 text-xs font-semibold">
                     <a href="<?= base_url('lang/en') ?>" class="px-2 py-1 rounded <?= ($_SESSION['lang'] ?? 'en') === 'en' ? 'bg-white text-green-900' : 'text-green-200' ?>">EN</a>
                     <a href="<?= base_url('lang/sw') ?>" class="px-2 py-1 rounded <?= ($_SESSION['lang'] ?? 'en') === 'sw' ? 'bg-white text-green-900' : 'text-green-200' ?>">SW</a>

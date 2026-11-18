@@ -20,6 +20,11 @@ class OrderController extends Controller
 
     public function create(): void
     {
+        if (($_SESSION['user_role'] ?? '') === 'admin') {
+            $_SESSION['flash_error'] = 'Admin accounts cannot place purchases.';
+            $this->redirect('/marketplace');
+        }
+
         $this->verifyCsrf();
 
         $buyerId = (int) $_SESSION['user_id'];

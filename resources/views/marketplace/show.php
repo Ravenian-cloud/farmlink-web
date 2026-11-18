@@ -6,10 +6,19 @@
                 <img src="<?= base_url($listing['image_path']) ?>" alt="<?= htmlspecialchars($listing['title']) ?>"
                      class="w-full h-full object-cover">
             <?php else: ?>
-                <div class="text-center p-8 text-stone-400">
-                    <span class="text-6xl block mb-2"><?= $listing['listing_type'] === 'produce' ? '🌾' : '🌱' ?></span>
-                    <span class="text-sm font-medium"><?= htmlspecialchars($listing['category_name']) ?></span>
-                </div>
+                <?php
+                    $categorySlug = strtolower(trim((string) $listing['category_name']));
+                    $fallbackImage = 'assets/img/seed.jpg';
+                    if (str_contains($categorySlug, 'cereal') || str_contains(strtolower((string) $listing['title']), 'maize')) {
+                        $fallbackImage = 'assets/img/maize.jpg';
+                    } elseif (str_contains($categorySlug, 'vegetable') || str_contains(strtolower((string) $listing['title']), 'onion')) {
+                        $fallbackImage = 'assets/img/onions.jpg';
+                    } elseif (str_contains($categorySlug, 'fertiliz')) {
+                        $fallbackImage = 'assets/img/fertilizer.jpg';
+                    }
+                ?>
+                <img src="<?= base_url($fallbackImage) ?>" alt="<?= htmlspecialchars($listing['title']) ?>"
+                     class="w-full h-full object-cover">
             <?php endif; ?>
         </div>
 
@@ -81,6 +90,10 @@
             <?php elseif ((int) $_SESSION['user_id'] === (int) $listing['seller_id']): ?>
                 <div class="bg-stone-100 text-stone-600 text-xs font-medium p-3 rounded-xl text-center">
                     This is your active listing. Manage incoming bids from your Dashboard.
+                </div>
+            <?php elseif (($_SESSION['user_role'] ?? '') === 'admin'): ?>
+                <div class="bg-stone-100 text-stone-600 text-xs font-medium p-3 rounded-xl text-center">
+                    Admin accounts can review listings but cannot purchase or bid.
                 </div>
             <?php else: ?>
                 <div class="space-y-4">

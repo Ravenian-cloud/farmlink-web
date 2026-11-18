@@ -1,0 +1,271 @@
+html[data-theme="night"] {
+    color-scheme: dark;
+}
+
+html[data-theme="day"] {
+    color-scheme: light;
+}
+
+[data-theme-icon="sun"] {
+    display: none;
+}
+
+html[data-theme="night"] [data-theme-icon="moon"] {
+    display: none;
+}
+
+html[data-theme="night"] [data-theme-icon="sun"] {
+    display: block;
+}
+
+html[data-theme="night"] body {
+    background-color: #0d1720;
+    color: #e8f0f3;
+}
+
+html[data-theme="night"] .bg-white,
+html[data-theme="night"] .bg-stone-50 {
+    background-color: #15232e;
+}
+
+html[data-theme="night"] .bg-stone-100 {
+    background-color: #1d303b;
+}
+
+html[data-theme="night"] .bg-stone-200 {
+    background-color: #2a404b;
+}
+
+html[data-theme="night"] .bg-emerald-50,
+html[data-theme="night"] .bg-emerald-50\/70 {
+    background-color: #123b39;
+}
+
+html[data-theme="night"] .bg-amber-50 {
+    background-color: #3b321d;
+}
+
+html[data-theme="night"] .bg-red-50 {
+    background-color: #40272a;
+}
+
+html[data-theme="night"] .text-stone-900,
+html[data-theme="night"] .text-stone-800,
+html[data-theme="night"] .text-stone-700 {
+    color: #e8f0f3;
+}
+
+html[data-theme="night"] .text-stone-600,
+html[data-theme="night"] .text-stone-500 {
+    color: #b7c8d0;
+}
+
+html[data-theme="night"] .text-stone-400 {
+    color: #91a8b2;
+}
+
+html[data-theme="night"] .text-green-900,
+html[data-theme="night"] .text-green-950 {
+    color: #e0f2ed;
+}
+
+html[data-theme="night"] .border-stone-100,
+html[data-theme="night"] .border-stone-200 {
+    border-color: #2a404b;
+}
+
+html[data-theme="night"] .border-stone-300 {
+    border-color: #3b5662;
+}
+
+html[data-theme="night"] .border-emerald-200 {
+    border-color: #24625c;
+}
+
+html[data-theme="night"] input,
+html[data-theme="night"] select,
+html[data-theme="night"] textarea {
+    background-color: #15232e;
+    color: #e8f0f3;
+    border-color: #3b5662;
+}
+
+html[data-theme="night"] input::placeholder,
+html[data-theme="night"] textarea::placeholder {
+    color: #91a8b2;
+}
+
+html[data-theme="night"] nav.md\:hidden {
+    background-color: #15232e;
+    border-color: #2a404b;
+    color: #b7c8d0;
+}
+
+html[data-theme="night"] .divide-stone-100 > :not([hidden]) ~ :not([hidden]) {
+    border-color: #2a404b;
+}
+
+html[data-theme="night"] .hover\:bg-stone-100:hover {
+    background-color: #2a404b;
+}
+
+html[data-theme="night"] .hover\:bg-stone-200:hover {
+    background-color: #3b5662;
+}
+
+html[data-theme="night"] .hover\:border-green-600:hover {
+    border-color: #5eead4;
+}
+
+html[data-theme="night"] .bg-blue-50 {
+    background-color: #1a3549;
+}
+
+html[data-theme="night"] .bg-emerald-100 {
+    background-color: #1c5145;
+}
+
+html[data-theme="night"] .bg-amber-100 {
+    background-color: #51431f;
+}
+
+html[data-theme="night"] .bg-blue-100 {
+    background-color: #24485e;
+}
+
+html[data-theme="night"] .bg-red-100,
+html[data-theme="night"] .bg-red-200 {
+    background-color: #593338;
+}
+
+html[data-theme="night"] .bg-indigo-100 {
+    background-color: #393653;
+}
+
+html[data-theme="night"] .border-blue-200 {
+    border-color: #32617a;
+}
+
+html[data-theme="night"] .text-blue-900 {
+    color: #c4e7fa;
+}
+
+html[data-theme="night"] .text-emerald-800,
+html[data-theme="night"] .text-emerald-900 {
+    color: #a9f0cf;
+}
+
+html[data-theme="night"] .text-amber-900,
+html[data-theme="night"] .text-amber-950 {
+    color: #f8df91;
+}
+
+html[data-theme="night"] .text-red-900,
+html[data-theme="night"] .text-red-950 {
+    color: #ffb4ac;
+}
+
+html[data-theme="night"] .text-indigo-800,
+html[data-theme="night"] .text-indigo-900 {
+    color: #c6c3ff;
+}
+
+html[data-theme="day"] body {
+    background-color: #f7f4e9;
+    color: #29372a;
+}
+
+html[data-theme="day"] .bg-white {
+    background-color: #fffdf7;
+}
+
+html[data-theme="day"] .bg-stone-50 {
+    background-color: #f7f4e9;
+}
+
+html[data-theme="day"] .bg-stone-100 {
+    background-color: #efeddf;
+}
+
+html[data-theme="day"] .bg-stone-200 {
+    background-color: #e2e2d2;
+}
+
+html[data-theme="day"] .text-stone-900 {
+    color: #29372a;
+}
+
+html[data-theme="day"] .text-stone-800 {
+    color: #354635;
+}
+
+html[data-theme="day"] .text-stone-700 {
+    color: #465846;
+}
+
+html[data-theme="day"] .text-stone-600 {
+    color: #596b58;
+}
+
+html[data-theme="day"] .text-stone-500 {
+    color: #687766;
+}
+
+html[data-theme="day"] .text-stone-400 {
+    color: #7d8977;
+}
+
+html[data-theme="day"] .border-stone-100 {
+    border-color: #e9e7d9;
+}
+
+html[data-theme="day"] .border-stone-200 {
+    border-color: #dedfce;
+}
+
+html[data-theme="day"] .border-stone-300 {
+    border-color: #cfd4c2;
+}
+
+html[data-theme="day"] header.bg-green-800 {
+    background: linear-gradient(110deg, #1e6449, #28724c);
+}
+
+html[data-theme="day"] header .bg-green-900 {
+    background-color: #174b3a;
+}
+
+html[data-theme="day"] nav.md\:hidden {
+    background-color: #fffdf7;
+    border-color: #dedfce;
+    color: #596b58;
+}
+
+html[data-theme="night"] header.bg-green-800 {
+    background: linear-gradient(110deg, #12363a, #17454a);
+}
+
+html[data-theme="night"] header .bg-green-900 {
+    background-color: #102b32;
+}
+
+html[data-theme="night"] header .border-green-600 {
+    border-color: #316268;
+}
+
+html[data-theme="night"] .text-green-700,
+html[data-theme="night"] .text-green-800 {
+    color: #7de2bd;
+}
+
+html[data-theme="night"] .bg-green-700 {
+    background-color: #16785e;
+}
+
+html[data-theme="night"] .hover\:bg-green-800:hover {
+    background-color: #1b8c6c;
+}
+
+html[data-theme="night"] .hover\:bg-green-700:hover {
+    background-color: #1b8c6c;
+}

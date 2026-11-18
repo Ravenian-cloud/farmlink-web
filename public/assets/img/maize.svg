@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Golden maize cobs</title><desc id="desc">Illustration of ripe maize cobs and leaves in a sunny field.</desc>
+  <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#dff3bc"/><stop offset="1" stop-color="#f8e8ad"/></linearGradient><linearGradient id="corn" x2="1" y2="1"><stop stop-color="#ffe878"/><stop offset=".55" stop-color="#f3b829"/><stop offset="1" stop-color="#d98817"/></linearGradient></defs>
+  <path fill="url(#sky)" d="M0 0h800v520H0z"/><circle cx="661" cy="99" r="48" fill="#fff1ad"/><path fill="#a9cf75" d="M0 340q180-95 365 0t435-8v188H0z"/><path fill="#6c9c4f" d="M0 414q180-88 365 0t435-8v114H0z"/>
+  <g stroke="#527c3e" stroke-width="12" stroke-linecap="round" fill="none"><path d="M194 475Q230 300 222 142M603 485Q563 302 576 153M393 478Q407 310 396 115"/></g>
+  <g fill="#77a84f"><path d="M220 365Q110 282 86 315q49 85 130 78M226 292q91-105 136-72-45 96-135 118M575 365q100-95 143-64-35 91-132 108M567 280q-76-105-129-75 36 92 126 119M396 362q-115-90-157-55 48 88 154 99M406 269q98-112 143-80-46 96-142 124"/></g>
+  <g fill="url(#corn)" stroke="#bc7c16" stroke-width="5"><path d="M160 366q-12-111 41-154 54 45 43 154-8 79-43 95-34-17-41-95z"/><path d="M527 361q-12-111 41-154 54 45 43 154-8 79-43 95-34-17-41-95z"/><path d="M355 326q-11-116 42-166 54 47 43 166-8 81-43 98-34-18-42-98z"/></g>
+  <g stroke="#e49f1d" stroke-width="4" opacity=".8"><path d="M182 244v184m17-198v207m18-195v191M549 240v190m18-204v210m18-194v190M378 211v211m18-225v237m18-220v210"/></g>
+</svg>
